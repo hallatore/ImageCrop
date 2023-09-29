@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ImageCrop.MobileApp.ImageCropper"
+             SizeChanged="ContentView_Changed" LayoutChanged="ContentView_Changed">
+    <Grid SizeChanged="ContentView_Changed">
+        <AbsoluteLayout
+            x:Name="AbsoluteLayoutContainer"
+            IsClippedToBounds="True"
+            VerticalOptions="End"
+            SizeChanged="ContentView_Changed">
+            <AbsoluteLayout.GestureRecognizers>
+                <PanGestureRecognizer PanUpdated="OnPanUpdated" />
+            </AbsoluteLayout.GestureRecognizers>
+            <Image 
+                x:Name="PreviewImage"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                AbsoluteLayout.LayoutBounds="0.5, 0.5, 100, 100"
+            />
+        </AbsoluteLayout>
+        <VerticalStackLayout x:Name="ZoomControls" Spacing="10" Margin="20" VerticalOptions="End" HorizontalOptions="End" Opacity="0.5">
+            <Button Text="+" Clicked="OnZoomInClicked" FontSize="Large" Padding="0" WidthRequest="40" HeightRequest="40" CornerRadius="100" Background="white" TextColor="Black" />
+            <Button Text="-" Clicked="OnZoomOutClicked" FontSize="Large" Padding="0" WidthRequest="40" HeightRequest="40" CornerRadius="100" Background="white" TextColor="Black" />
+        </VerticalStackLayout>
+    </Grid>
+</ContentView>

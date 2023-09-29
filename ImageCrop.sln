@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32721.290
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImageCrop.MobileApp", "ImageCrop.MobileApp\ImageCrop.MobileApp.csproj", "{2399BCD9-52CB-4D08-A302-6F15FB55CFE1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImageCrop.Core", "ImageCrop.Core\ImageCrop.Core.csproj", "{ACDCD31D-3FC9-4E53-A197-7F416CC7AC58}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Smartcrop", "Smartcrop\Smartcrop.csproj", "{41B4DFEB-4E56-4CD7-8849-143A2FAA3A59}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2399BCD9-52CB-4D08-A302-6F15FB55CFE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2399BCD9-52CB-4D08-A302-6F15FB55CFE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2399BCD9-52CB-4D08-A302-6F15FB55CFE1}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{2399BCD9-52CB-4D08-A302-6F15FB55CFE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2399BCD9-52CB-4D08-A302-6F15FB55CFE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2399BCD9-52CB-4D08-A302-6F15FB55CFE1}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{ACDCD31D-3FC9-4E53-A197-7F416CC7AC58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACDCD31D-3FC9-4E53-A197-7F416CC7AC58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACDCD31D-3FC9-4E53-A197-7F416CC7AC58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACDCD31D-3FC9-4E53-A197-7F416CC7AC58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41B4DFEB-4E56-4CD7-8849-143A2FAA3A59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41B4DFEB-4E56-4CD7-8849-143A2FAA3A59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41B4DFEB-4E56-4CD7-8849-143A2FAA3A59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41B4DFEB-4E56-4CD7-8849-143A2FAA3A59}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C82F37B7-268B-476B-B5F4-1AB10921A1B6}
+	EndGlobalSection
+EndGlobal

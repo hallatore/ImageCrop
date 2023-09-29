@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:ImageCrop.MobileApp"
+             x:Class="ImageCrop.MobileApp.MainPage">
+    <Grid x:Name="Container">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Image x:Name="PreviewImage" VerticalOptions="Center"/>
+        <ActivityIndicator x:Name="ActivityIndicatorElement" IsRunning="False" VerticalOptions="Center" HorizontalOptions="Center" />
+        <HorizontalStackLayout Grid.Row="1" HorizontalOptions="Center" Spacing="20" Margin="10">
+            <Button
+                x:Name="AspectRatioButton"
+                Text="9:16"
+                Clicked="OnAspectRatioClicked" />
+            <Button
+                x:Name="ShareButton"
+                Text="Share"
+                Clicked="OnShareClicked" />
+            <Button
+                x:Name="OpenButton"
+                Text="Open"
+                Clicked="OnOpenClicked" />
+            <!--<Button
+                x:Name="PrevButton"
+                Text="Prev"
+                Clicked="OnPrevClicked" />
+            <Button
+                x:Name="NextButton"
+                Text="Next"
+                Clicked="OnNextClicked" />-->
+        </HorizontalStackLayout>
+    </Grid>
+</ContentPage>
