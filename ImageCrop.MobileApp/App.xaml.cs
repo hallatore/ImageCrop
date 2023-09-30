@@ -1,4 +1,4 @@
-﻿namespace ImageCrop.MobileApp
+namespace ImageCrop.MobileApp
 {
     public partial class App : Application
     {
@@ -8,5 +8,7 @@
 
             MainPage = new AppShell();
         }
+
+        public static MemoryStream ImageStream { get; set; }
     }
 }

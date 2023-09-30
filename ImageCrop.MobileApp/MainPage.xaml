@@ -11,10 +11,10 @@
         <Image x:Name="PreviewImage" VerticalOptions="Center"/>
         <ActivityIndicator x:Name="ActivityIndicatorElement" IsRunning="False" VerticalOptions="Center" HorizontalOptions="Center" />
         <HorizontalStackLayout Grid.Row="1" HorizontalOptions="Center" Spacing="20" Margin="10">
-            <!--<Button
-                x:Name="AspectRatioButton"
-                Text="9:16"
-                Clicked="OnAspectRatioClicked" />-->
+            <Button
+                x:Name="SaveButton"
+                Text="Save copy"
+                Clicked="OnSaveClicked" />
             <Button
                 x:Name="ShareButton"
                 Text="Share"
