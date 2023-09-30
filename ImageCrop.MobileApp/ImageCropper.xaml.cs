@@ -7,14 +7,17 @@ public partial class ImageCropper : ContentView
     private Rect _boundingBox;
     private readonly ImageSource _imageSource;
     private readonly Size _imageSize;
-    private Size _outputSize;
 
-    public ImageCropper(ImageSource imageSource, Size imageSize, Size outputSize)
+    private BoundingBoxHelper _boundingBoxHelper;
+
+    public ImageCropper(Size originalImageSize, ImageSource previewImageSource)
     {
         InitializeComponent();
-        _imageSource = imageSource;
-        _imageSize = imageSize;
-        _outputSize = outputSize;
+        _imageSource = previewImageSource;
+        _imageSize = originalImageSize;
+        _boundingBoxHelper = new BoundingBoxHelper((int) _imageSize.Width, (int) _imageSize.Height, new Size(1024, 1920));
+        _boundingBox = _boundingBoxHelper.GetBoundingBox((int) _imageSize.Width, (int) _imageSize.Height);
+
         Loaded += ImageCropper_Loaded;
     }
 
@@ -33,14 +36,7 @@ public partial class ImageCropper : ContentView
 
     public void UpdateOutputSize(Size outputSize)
     {
-        _outputSize = outputSize;
         AdjustSize();
-        AdjustImage();
-    }
-
-    public void SetBoundingBox(Rect boundingBox)
-    {
-        _boundingBox = boundingBox;
         AdjustImage();
     }
 
@@ -49,10 +45,15 @@ public partial class ImageCropper : ContentView
         return _boundingBox;
     }
 
+    public Size GetOutputSize()
+    {
+        return _boundingBoxHelper.OutputSize;
+    }
+
     public void Zoom(float scaleFactor)
     {
-        _boundingBox = ImageSet.ScaleBoundingBox(_boundingBox, scaleFactor);
-        _boundingBox = ImageSet.EnsureBoundingBoxSize(_boundingBox, _imageSize, _outputSize);
+        _boundingBox = _boundingBoxHelper.ScaleBoundingBox(_boundingBox, scaleFactor);
+        AdjustSize();
         AdjustImage();
     }
 
@@ -87,7 +88,7 @@ public partial class ImageCropper : ContentView
             var tempY = updatedY / ratio;
 
             _boundingBox = _boundingBox.Offset((int)tempX * -1, (int)tempY * -1);
-            _boundingBox = ImageSet.EnsureBoundingBoxSize(_boundingBox, _imageSize, _outputSize);
+            _boundingBox = _boundingBoxHelper.EnsureFit(_boundingBox);
             AdjustImage();
 
             tempPanOffsetX = e.TotalX;
@@ -99,8 +100,8 @@ public partial class ImageCropper : ContentView
     {
         var ratio = GetViewSizeRatio();
 
-        var newWidth = _outputSize.Width * ratio;
-        var newHeight = _outputSize.Height * ratio;
+        var newWidth = _boundingBoxHelper.OutputSize.Width * ratio;
+        var newHeight = _boundingBoxHelper.OutputSize.Height * ratio;
 
         if (newHeight <= 0 || newWidth <= 0)
         {
@@ -113,8 +114,8 @@ public partial class ImageCropper : ContentView
 
     private double GetViewSizeRatio()
     {
-        var ratioX = Width / _outputSize.Width;
-        var ratioY = Height / _outputSize.Height;
+        var ratioX = Width / _boundingBoxHelper.OutputSize.Width;
+        var ratioY = Height / _boundingBoxHelper.OutputSize.Height;
         var ratio = ratioX < ratioY ? ratioX : ratioY;
         return ratio;
     }
