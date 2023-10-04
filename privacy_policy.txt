@@ -1,0 +1,9 @@
+InstaCrop - Privacy policy
+Simple image crop tool for cropping your image before sharing it.
+
+Privacy:
+No information in InstaCrop is shared with others. Only you got access to the data.
+
+The app doesn't use any form of analytics or tracking.
+
+Contact: tore@lervik.com
